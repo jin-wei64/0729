@@ -39,12 +39,13 @@
 
 <script>
 
-$(document).ready(function () {
+$(function () {
     $("#okButton").on('click', function () {
         var salary = 60000;
         // salary 的值如何累計加一變成 60001, 參考答案附於稍後
+        salary += 1;
 
-        report.innerHTML += `z = ${z} <br>`;
+        report.innerHTML += `salary = ${salary} <br>`;
     })
 
 })
