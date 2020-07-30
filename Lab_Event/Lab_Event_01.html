@@ -4,12 +4,50 @@
 <meta charset="UTF-8">
 <title>Lab</title>
 <style type="text/css">
-
-
-</style>
+	.box {
+		position: fixed;
+		top: -200px;
+		left: 30%;
+		width: 450px;
+		background-color: #fff;
+		color: #7F7F7F;
+		padding: 20px;
+		border: 2px solid #ccc;
+		border-radius: 20px;
+		-webkit-border-radius: 20px;
+		-khtml-border-radius: 20px;
+		box-shadow: 0 1px 5px #333;
+		-webkit-box-shadow: 0 1px 5px #333;
+		z-index: 101;
+		-webkit-transition: top 3s ease-out;
+		-ms-transition: top 3s ease-out;
+		transition: all 3s ease-out;
+	}
+	.box h1 {
+		border-bottom: 1px dashed #7F7F7F;
+		margin: -20px -20px 0px -20px;
+		padding: 10px;
+		background-color: #FFEFEF;
+		color: #EF7777;
+		border-radius: 20px 20px 0px 0px;
+		border-top-left-radius: 20px;
+		border-top-right-radius: 20px;
+		-khtml-border-top-left-radius: 20px;
+		-khtml-border-top-right-radius: 20px;
+	}
+	a.boxclose {
+		float: right;
+		width: 26px;
+		height: 26px;
+		background: transparent url(images/cancel.png) repeat top left;
+		margin-top: -30px;
+		margin-right: -30px;
+		cursor: pointer;
+	}
+	</style>
 </head>
 <body>
-	<img src="images/clickme.png">
+	<img src="images/clickme.png" onclick="doAnimateShow();">
 
 	<div class="box" id="box">
 		<a class="boxclose" id="boxclose"></a>
@@ -19,8 +57,16 @@
 	</div>
 
 	<script>
-	
-	
+		function doAnimateShow() {
+			document.getElementById("box").style.left = event.x + "px";
+			document.getElementById("box").style.top = event.y + "px";
+		}
+		function doAnimateHide() {
+			document.getElementById("box").style.top = "-200px";
+			event.cancelBubble = true;
+		}
+		document.getElementById("boxclose").onclick = doAnimateHide;
+		document.onclick = doAnimateShow;
 		
 	</script>
 
